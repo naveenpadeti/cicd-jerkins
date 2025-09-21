@@ -6,7 +6,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y git
 
 # Clone your backend repo
-RUN git clone https://github.com/naveenpadeti/lms-backend.git .
+RUN git clone https://github.com/naveenpadeti/lmspro-backend.git .
 
 # Build the Spring Boot JAR
 RUN --mount=type=cache,target=/root/.m2 mvn clean install package -DskipTests
@@ -23,5 +23,6 @@ EXPOSE 8081
 
 # Optional JVM options
 ENV JAVA_OPTS=""
+
 
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
